@@ -193,8 +193,13 @@ Provide direct answers to questions. Be helpful and concise.`
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-4">
             Try the Demo
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-4">
             Experience how our AI assistant handles client inquiries and appointment requests
+          </p>
+          <p className="text-md text-gray-600 max-w-3xl mx-auto bg-blue-50 p-4 rounded-lg">
+            ⚡️ This is a demo VAPI agent.<br />
+            It's here to show what's possible. The final version will be fully customized to your business—tone, answers, booking flow, everything. It'll understand your services, speak like your brand, and only offer available time slots from your calendar.<br /><br />
+            You control what it says and how it works.
           </p>
         </div>
         

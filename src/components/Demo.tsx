@@ -141,8 +141,8 @@ Guidelines:
           ],
         },
         voice: {
-          provider: "deepgram",
-          voiceId: "stella"
+          provider: "elevenlabs",
+          voiceId: "ZF6FPAbjXT4488VcRRnw"
         },
         name: "Balance Physio Assistant",
       });
@@ -299,4 +299,4 @@ Guidelines:
   );
 };
 
-export default Demo
+export default Demo;

@@ -8,6 +8,7 @@ const Demo = () => {
   const [isCallActive, setIsCallActive] = useState(false);
   const [vapi, setVapi] = useState<Vapi | null>(null);
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const [showSpeakNotification, setShowSpeakNotification] = useState(false);
   
   useEffect(() => {
     const vapiInstance = new Vapi("a74aeeee-0668-4269-8b7f-f249f24fa303");
@@ -72,6 +73,12 @@ const Demo = () => {
     
     try {
       setIsCallActive(true);
+      setShowSpeakNotification(true);
+      
+      setTimeout(() => {
+        setShowSpeakNotification(false);
+      }, 5000);
+
       await vapi.start({
         transcriber: {
           provider: "deepgram",
@@ -149,15 +156,18 @@ Guidelines:
 
       vapi.on("call-end", () => {
         setIsCallActive(false);
+        setShowSpeakNotification(false);
       });
 
       vapi.on("error", (error) => {
         console.error("Call error:", error);
         setIsCallActive(false);
+        setShowSpeakNotification(false);
       });
     } catch (error) {
       console.error("Failed to start call:", error);
       setIsCallActive(false);
+      setShowSpeakNotification(false);
     }
   };
 
@@ -165,6 +175,7 @@ Guidelines:
     if (vapi && isCallActive) {
       vapi.stop();
       setIsCallActive(false);
+      setShowSpeakNotification(false);
     }
   };
 
@@ -218,6 +229,11 @@ Guidelines:
                 <p className="text-gray-600 mb-8">
                   Experience how our AI phone assistant handles treatment inquiries and booking requests.
                 </p>
+                {showSpeakNotification && (
+                  <div className="mb-4 p-3 bg-blue-50 text-blue-700 rounded-lg">
+                    Please start speaking to begin the conversation
+                  </div>
+                )}
                 <button 
                   onClick={isCallActive ? handleCallEnd : handleCallStart}
                   className={`inline-flex items-center gap-2 px-8 py-4 rounded-full transition-all duration-300 transform hover:scale-105 shadow-md ${

@@ -5,34 +5,34 @@ import { Feature } from '../types';
 const Features = () => {
   const features: Feature[] = [
     {
-      icon: <Clock className="h-8 w-8 text-teal-500" />,
+      icon: <Clock className="h-8 w-8 text-indigo-500" />,
       title: "24/7 Availability",
-      description: "Answer calls with empathy and professionalism any time of day or night."
+      description: "Handle appointment inquiries and provide service information any time, day or night."
     },
     {
-      icon: <FileText className="h-8 w-8 text-teal-500" />,
-      title: "Service Explanation",
-      description: "Clearly explain therapy services and how new clients can get started."
+      icon: <FileText className="h-8 w-8 text-indigo-500" />,
+      title: "Treatment Information",
+      description: "Explain our physiotherapy and acupuncture services to potential clients."
     },
     {
-      icon: <Calendar className="h-8 w-8 text-teal-500" />,
-      title: "Appointment Scheduling",
-      description: "Help schedule appointments or take contact details for callbacks."
+      icon: <Calendar className="h-8 w-8 text-indigo-500" />,
+      title: "Appointment Booking",
+      description: "Help schedule appointments and manage booking inquiries efficiently."
     },
     {
-      icon: <Phone className="h-8 w-8 text-teal-500" />,
-      title: "No Missed Calls",
-      description: "Ensure no call goes unanswered, even during busy hours."
+      icon: <Phone className="h-8 w-8 text-indigo-500" />,
+      title: "Always Available",
+      description: "Never miss a call, even during treatment sessions."
     },
     {
-      icon: <Settings className="h-8 w-8 text-teal-500" />,
-      title: "Automation",
-      description: "Save admin time by automating responses to routine questions."
+      icon: <Settings className="h-8 w-8 text-indigo-500" />,
+      title: "Smart Automation",
+      description: "Save time by automating responses to common questions about services and pricing."
     },
     {
-      icon: <Award className="h-8 w-8 text-teal-500" />,
-      title: "Professional Image",
-      description: "Enhance your practice's professional appearance with consistent service."
+      icon: <Award className="h-8 w-8 text-indigo-500" />,
+      title: "Professional Care",
+      description: "Maintain high standards of service even when handling automated responses."
     }
   ];
 
@@ -44,7 +44,7 @@ const Features = () => {
             How Our AI Assistant Can Help
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            This smart voice agent enhances your therapy practice's client experience
+            Enhancing patient care by managing inquiries intelligently while we focus on treatments
           </p>
         </div>
         
@@ -52,7 +52,7 @@ const Features = () => {
           {features.map((feature, index) => (
             <div 
               key={index} 
-              className="bg-blue-50 rounded-xl p-8 transition-all duration-300 hover:shadow-lg hover:transform hover:scale-105"
+              className="bg-indigo-50 rounded-xl p-8 transition-all duration-300 hover:shadow-lg hover:transform hover:scale-105"
             >
               <div className="mb-4">{feature.icon}</div>
               <h3 className="text-xl font-semibold text-gray-800 mb-2">{feature.title}</h3>
@@ -64,5 +64,3 @@ const Features = () => {
     </section>
   );
 };
-
-export default Features;

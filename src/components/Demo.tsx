@@ -22,56 +22,47 @@ const Demo = () => {
   
   const questionCategories: QuestionCategory[] = [
     {
-      title: "Lead Qualification & Booking",
-      emoji: "🎯",
-      description: "Shows how the assistant captures leads, filters intent, and handles missed call scenarios.",
+      title: "Treatment Information",
+      emoji: "🏥",
+      description: "Learn about our physiotherapy and acupuncture services.",
       questions: [
-        "Can you take my name and number if I want to book an appointment?",
-        "I'm not sure what kind of therapy I need — what's the first step?",
-        "Can you check if there are appointments next week for new clients?",
-        "I've called a few times and no one answered — can you help me now?"
+        "What treatments do you offer?",
+        "How long is a typical session?",
+        "What's the difference between physiotherapy and acupuncture?",
+        "Do you treat lower back pain?"
       ]
     },
     {
-      title: "Automation Value",
-      emoji: "🤖",
-      description: "Reveals how much admin time and manual explanation the assistant can eliminate.",
+      title: "Booking & Pricing",
+      emoji: "📅",
+      description: "Get information about appointments and fees.",
       questions: [
-        "What types of questions can you help with automatically?",
-        "Do you know what services are offered without me speaking to someone?",
-        "Can you send me a link to book online?",
-        "Can you explain the difference between counselling and psychotherapy?"
+        "How much does a physiotherapy session cost?",
+        "Can I book an appointment for next week?",
+        "Do you offer combined physio and acupuncture treatments?",
+        "What happens in the first consultation?"
       ]
     },
     {
-      title: "Client Experience Simulation",
-      emoji: "🧠",
-      description: "Simulates emotional client scenarios and shows how the assistant maintains calm, helpful tone.",
+      title: "Location & Availability",
+      emoji: "📍",
+      description: "Find out about our clinic location and hours.",
       questions: [
-        "I'm feeling overwhelmed and don't know where to start — can you guide me?",
-        "Do you have someone who works with teens dealing with anxiety?",
-        "Can you tell me what to expect on the first visit?",
-        "What should I bring to my first appointment?"
+        "Where is your clinic located?",
+        "What are your opening hours?",
+        "Is parking available?",
+        "Do you offer evening appointments?"
       ]
     },
     {
-      title: "After-Hours Handling",
-      emoji: "⏰",
-      description: "Highlights 24/7 coverage and reassurance to potential clients calling after hours.",
+      title: "Treatment Specifics",
+      emoji: "🔍",
+      description: "Details about specific conditions and treatments.",
       questions: [
-        "Is anyone available to talk right now?",
-        "Can you get someone to call me back tomorrow?",
-        "It's late — can I still book or leave a message?"
-      ]
-    },
-    {
-      title: "Boundary Testing",
-      emoji: "🛑",
-      description: "Shows how well the assistant avoids clinical advice and stays compliant while being helpful.",
-      questions: [
-        "How much will my treatment cost exactly?",
-        "Can you tell me what diagnosis I might have?",
-        "Should I see a psychologist or a counsellor?"
+        "Can you help with sciatica?",
+        "Do you treat sports injuries?",
+        "What should I wear to my appointment?",
+        "How many sessions might I need?"
       ]
     }
   ];
@@ -93,46 +84,59 @@ const Demo = () => {
           messages: [
             {
               role: "system",
-              content: `⚡️ This is a demo VAPI agent.
-It's here to show what's possible. The final version will be fully customized to your business—tone, answers, booking flow, everything. It'll understand your services, speak like your brand, and only offer available time slots from your calendar.
+              content: `You are the AI assistant for Balance Physiotherapy & Acupuncture in Manchester.
 
-You control what it says and how it works.
+Location: 1a Clarendon Road, Swinton, Manchester, M27 4BP, UK
+Phone: 07783 670275
+Email: balance.acup.physio@gmail.com
 
-Provide direct answers to questions. Be helpful and concise.
+Services & Pricing:
+- Initial Physiotherapy Consultation (1 hr) - £55
+- Follow-Up Physiotherapy (30 min) - £40
+- Acupuncture Treatment (1 hr) - £50
+- Combined Physio & Acupuncture (1 hr) - £60
+- Relaxation & Tension Relief (1 hr) - £45
+
+We treat:
+- Lower back pain
+- Neck and shoulder tension
+- Joint pain and mobility issues
+- Sports injuries
+- Chronic fatigue
+- Stress and anxiety
+- Women's health concerns
+- Sciatica and nerve pain
+- Posture-related discomfort
 
 Key Functions:
-1. Lead Qualification & Booking:
-- Collect contact details (name, phone) for callbacks
-- Ask about preferred contact times
-- Explain the initial consultation process
-- Note that specific appointment times need therapist confirmation
+1. Appointment Booking:
+- Collect contact details for callbacks
+- Explain consultation process
+- Note that specific times need practitioner confirmation
 
 2. Service Information:
-- Explain our therapy services (counseling, psychotherapy, CBT)
-- Describe the differences between therapy types
-- Share session duration (50 minutes) and frequency options
-- Mention we have both in-person and online options
+- Explain treatments and differences
+- Share session durations and prices
+- Describe what to expect
+- Mention both assessment and treatment options
 
 3. First Visit Guidance:
-- Explain the initial assessment process
-- Mention what to bring (ID, payment method, relevant medical info)
-- Describe the therapy center environment
-- Reassure about confidentiality
+- Explain initial assessment
+- Advise on clothing (loose, comfortable)
+- Describe clinic location and parking
+- Discuss payment methods
 
-4. Crisis & After-Hours:
-- For urgent support, provide crisis helpline numbers
+4. After-Hours:
 - Take messages for next-day callback
-- Explain emergency procedures
+- Provide emergency guidance if needed
+- Explain booking process
 
-Important Guidelines:
-- Never provide clinical advice or diagnoses
-- Don't quote exact prices (say we'll discuss during callback)
-- Maintain professional, warm, and reassuring tone
-- Always offer to take contact details for follow-up
-- For clinical questions, note they'll be discussed with the therapist
-
-Location: Central London (fictional address)
-Hours: Monday-Friday 9am-8pm, Saturday 9am-5pm`
+Guidelines:
+- Be professional yet warm
+- Always offer to take contact details
+- Don't provide clinical advice
+- Maintain a caring, supportive tone
+- For urgent pain, suggest GP or NHS 111`
             },
           ],
         },
@@ -140,7 +144,7 @@ Hours: Monday-Friday 9am-8pm, Saturday 9am-5pm`
           provider: "deepgram",
           voiceId: "stella"
         },
-        name: "Acorn Therapy Assistant",
+        name: "Balance Physio Assistant",
       });
 
       vapi.on("call-end", () => {
@@ -172,7 +176,7 @@ Hours: Monday-Friday 9am-8pm, Saturday 9am-5pm`
             Try the Demo
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Experience how our AI assistant handles client calls and inquiries
+            Experience how our AI assistant handles client inquiries and appointment requests
           </p>
         </div>
         
@@ -184,7 +188,7 @@ Hours: Monday-Friday 9am-8pm, Saturday 9am-5pm`
                 onClick={() => setActiveTab('call')}
                 className={`flex-1 py-4 text-center font-medium ${
                   activeTab === 'call' 
-                    ? 'bg-teal-500 text-white' 
+                    ? 'bg-indigo-500 text-white' 
                     : 'bg-gray-100 text-gray-600'
                 }`}
               >
@@ -194,7 +198,7 @@ Hours: Monday-Friday 9am-8pm, Saturday 9am-5pm`
                 onClick={() => setActiveTab('questions')}
                 className={`flex-1 py-4 text-center font-medium ${
                   activeTab === 'questions' 
-                    ? 'bg-teal-500 text-white' 
+                    ? 'bg-indigo-500 text-white' 
                     : 'bg-gray-100 text-gray-600'
                 }`}
               >
@@ -205,21 +209,21 @@ Hours: Monday-Friday 9am-8pm, Saturday 9am-5pm`
             {/* Left side (Call section) */}
             <div className={`md:w-1/2 p-8 ${activeTab === 'call' ? 'block' : 'hidden md:block'}`}>
               <div className="text-center">
-                <div className="inline-flex items-center justify-center h-20 w-20 rounded-full bg-teal-100 mb-6">
-                  <Phone className="h-10 w-10 text-teal-600" />
+                <div className="inline-flex items-center justify-center h-20 w-20 rounded-full bg-indigo-100 mb-6">
+                  <Phone className="h-10 w-10 text-indigo-600" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-800 mb-4">
                   Call Our AI Assistant
                 </h3>
                 <p className="text-gray-600 mb-8">
-                  Experience firsthand how our AI phone assistant handles client inquiries with professionalism and empathy.
+                  Experience how our AI phone assistant handles treatment inquiries and booking requests.
                 </p>
                 <button 
                   onClick={isCallActive ? handleCallEnd : handleCallStart}
                   className={`inline-flex items-center gap-2 px-8 py-4 rounded-full transition-all duration-300 transform hover:scale-105 shadow-md ${
                     isCallActive 
                       ? 'bg-red-500 hover:bg-red-600 text-white' 
-                      : 'bg-teal-500 hover:bg-teal-600 text-white'
+                      : 'bg-indigo-500 hover:bg-indigo-600 text-white'
                   }`}
                 >
                   <Phone className="h-5 w-5" />
@@ -234,16 +238,16 @@ Hours: Monday-Friday 9am-8pm, Saturday 9am-5pm`
                   <AlertCircle className="h-6 w-6 text-amber-500 flex-shrink-0 mt-0.5" />
                   <p className="text-sm text-gray-600">
                     <span className="font-semibold block text-gray-800 mb-1">Note:</span>
-                    This is a demo version only. It's designed to show how AI can support real client needs, not replace clinical conversations.
+                    This is a demo version. It shows how AI can support client communication while maintaining our high standards of care.
                   </p>
                 </div>
               </div>
             </div>
             
             {/* Right side (Questions section) */}
-            <div className={`md:w-1/2 bg-blue-50 p-8 ${activeTab === 'questions' ? 'block' : 'hidden md:block'}`}>
+            <div className={`md:w-1/2 bg-indigo-50 p-8 ${activeTab === 'questions' ? 'block' : 'hidden md:block'}`}>
               <div className="flex items-center gap-3 mb-6">
-                <MessageSquare className="h-6 w-6 text-teal-600" />
+                <MessageSquare className="h-6 w-6 text-indigo-600" />
                 <h3 className="text-xl font-semibold text-gray-800">
                   Sample Questions to Ask
                 </h3>
@@ -276,7 +280,7 @@ Hours: Monday-Friday 9am-8pm, Saturday 9am-5pm`
                           {category.questions.map((question, qIndex) => (
                             <div
                               key={qIndex}
-                              className="p-3 bg-blue-50 rounded-lg text-gray-700 hover:bg-blue-100 transition-colors duration-200"
+                              className="p-3 bg-indigo-50 rounded-lg text-gray-700 hover:bg-indigo-100 transition-colors duration-200"
                             >
                               "{question}"
                             </div>
@@ -294,5 +298,3 @@ Hours: Monday-Friday 9am-8pm, Saturday 9am-5pm`
     </section>
   );
 };
-
-export default Demo;

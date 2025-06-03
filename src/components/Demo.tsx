@@ -298,3 +298,5 @@ Guidelines:
     </section>
   );
 };
+
+export default Demo

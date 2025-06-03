@@ -141,7 +141,7 @@ Guidelines:
           ],
         },
         voice: {
-          provider: "elevenlabs",
+          provider: "11labs",
           voiceId: "ZF6FPAbjXT4488VcRRnw"
         },
         name: "Balance Physio Assistant",
